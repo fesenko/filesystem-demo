@@ -9,11 +9,14 @@ watchify = require 'watchify'
 browserify = require 'browserify'
 
 htmlFilesMask = './src/**/*.html'
-libs = ['angular']
+libs = [
+	'react-tools'
+	'React'
+]
 
 browserifyOpts =
 	entries: ['./src/index.coffee'],
-	transform: ['coffeeify']
+	transform: ['coffee-reactify']
 	debug: true
 
 b =
