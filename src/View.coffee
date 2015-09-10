@@ -1,12 +1,16 @@
 React = require 'React'
 UploadForm = require './UploadForm.coffee'
 PictureList = require './PictureList.coffee'
+storage = require './storage.coffee'
 
 View = React.createClass
   getInitialState: ->
-    pictureUrls: [
-      'https://pbs.twimg.com/profile_images/447460759329460224/mt2UmwGG_400x400.jpeg'
-    ]
+    pictureUrls: []
+
+  componentDidMount: ->
+    storage.getAllPictures().then (pictureUrls)=>
+      @setState
+        pictureUrls: pictureUrls
 
   render: ->
     <div>

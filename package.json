@@ -17,6 +17,7 @@
     "gulp-coffee": "^2.3.1",
     "gulp-util": "^3.0.6",
     "gulp-webserver": "^0.9.1",
+    "promise-polyfill": "^2.1.0",
     "react": "^0.13.3",
     "react-tools": "^0.13.3",
     "vinyl-buffer": "^1.0.0",

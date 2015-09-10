@@ -10,6 +10,7 @@ browserify = require 'browserify'
 
 htmlFilesMask = './src/**/*.html'
 libs = [
+	'promise-polyfill'
 	'react-tools'
 	'React'
 ]
