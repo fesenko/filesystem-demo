@@ -8,13 +8,16 @@ View = React.createClass
     pictureUrls: []
 
   componentDidMount: ->
-    storage.getAllPictures().then (pictureUrls)=>
+    storage.getAllFiles().then (fileUrls)=>
       @setState
-        pictureUrls: pictureUrls
+        pictureUrls: fileUrls
+
+  uploadFiles: (fileList)->
+    storage.uploadFiles fileList
 
   render: ->
     <div>
-      <UploadForm />
+      <UploadForm onChooseFiles={this.uploadFiles} />
       <PictureList pictureUrls={this.state.pictureUrls} />
     </div>
 
