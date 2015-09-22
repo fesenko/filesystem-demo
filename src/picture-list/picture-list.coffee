@@ -1,5 +1,5 @@
 React = require 'React'
-Picture = require './Picture.coffee'
+Picture = require '../picture/picture.coffee'
 
 PictureList = React.createClass
   render: ->

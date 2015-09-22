@@ -7,6 +7,8 @@ source = require 'vinyl-source-stream'
 buffer = require 'vinyl-buffer'
 watchify = require 'watchify'
 browserify = require 'browserify'
+bowerFiles = require 'main-bower-files'
+wiredep = require 'wiredep'
 
 htmlFilesMask = './src/**/*.html'
 libs = [
@@ -42,6 +44,21 @@ gulp.task 'libs', ['cleanBuildDir'], ->
 	.pipe source('libs.js')
 	.pipe gulp.dest('./build')
 
+gulp.task 'bower', ['html'], ->
+	gulp.src bowerFiles(), { base: 'vendor' }
+		.pipe gulp.dest './build/vendor'
+
+	gulp.src './src/index.html'
+	.pipe(wiredep.stream({
+		fileTypes:
+			html:
+				replace:
+					css: (filePath)->
+						filePath = filePath.replace /^\.\.\//, ''
+						return '<link rel="stylesheet" href="' + filePath + '"/>';
+	}))
+	.pipe gulp.dest('./build')
+
 gulp.task 'compileCode', ['cleanBuildDir'], compileCode
 
 gulp.task 'html', ['cleanBuildDir'], ->
@@ -51,7 +68,7 @@ gulp.task 'html', ['cleanBuildDir'], ->
 gulp.task 'cleanBuildDir', (cb)->
 	del ['./build/**/*.*'], cb
 
-gulp.task 'build', ['compileCode', 'html', 'libs']
+gulp.task 'build', ['compileCode', 'libs', 'bower']
 
 gulp.task 'webserver', ['build'], ->
 	gulp.src 'build'

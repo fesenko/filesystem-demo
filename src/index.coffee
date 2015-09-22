@@ -1,4 +1,4 @@
 React = require 'React'
-View = require './View.coffee'
+View = require './view/view.coffee'
 
 React.render <View />, document.body

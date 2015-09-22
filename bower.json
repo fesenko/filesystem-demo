@@ -1,0 +1,19 @@
+{
+  "name": "filesystem-demo",
+  "version": "1.0.0",
+  "homepage": "https://github.com/fesenko/filesystem-demo",
+  "authors": [
+    "Sergey Fesenko <sergey@nix-digital.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-css-only": "~3.3.5"
+  }
+}
