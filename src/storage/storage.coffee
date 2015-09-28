@@ -19,18 +19,20 @@ init = ->
       , (err)->
         reject err
 
-uploadFile = (file)->
+exports.uploadFile = (fileURI)->
   new Promise (resolve, reject)->
-    init().then (fs)->
-      fs.root.getFile file.name, {create: true, exclusive: true}, (fileEntry)->
+    console.log fileURI
+    return resolve()
+    # init().then (fs)->
+    #   fs.root.getFile Date.now(), {create: true, exclusive: true}, (fileEntry)->
 
-        fileEntry.createWriter (fileWriter)->
-          fileWriter.write file
-        , (err)->
-          reject err
+    #     fileEntry.createWriter (fileWriter)->
+    #       fileWriter.write file
+    #     , (err)->
+    #       reject err
 
-      , (err)->
-        reject err
+    #   , (err)->
+    #     reject err
 
 exports.getAllFiles = ->
   files = []
@@ -53,14 +55,3 @@ exports.getAllFiles = ->
 
       read()
 
-exports.removeFile = ->
-
-exports.uploadFiles = (fileList)->
-  length = fileList.length
-  promises = []
-
-  for i in [0..length - 1]
-    file = fileList[i]
-    promises.push uploadFile(file)
-
-  return Promise.all promises

@@ -13,7 +13,7 @@ View = React.createClass
         pictureUrls: fileUrls
 
   uploadFiles: (fileList)->
-    storage.uploadFiles fileList
+    storage.uploadFile fileList
 
   render: ->
     <div>
