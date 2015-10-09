@@ -1,7 +1,7 @@
 {
   "name": "Demo",
   "version": "1.0.0",
-  "description": "Seed",
+  "description": "Demo of using File System APIs",
   "author": "Sergey Fesenko",
   "main": "build/index.js",
   "scripts": {
@@ -12,9 +12,9 @@
     "browserify": "^11.0.1",
     "coffee-reactify": "^4.0.0",
     "coffee-script": "^1.9.3",
-    "promise-polyfill": "^2.1.0",
     "react": "^0.13.3",
-    "react-tools": "^0.13.3"
+    "react-tools": "^0.13.3",
+    "xhr": "^2.1.0"
   },
   "devDependencies": {
     "del": "^1.2.0",
@@ -30,6 +30,18 @@
     "wiredep": "^3.0.0-beta"
   },
   "jest": {
-    "testDirectoryName": "src"
+    "rootDir": "src",
+    "scriptPreprocessor": "../preprocessor.js",
+    "unmockedModulePathPatterns": ["global/window"],
+    "testFileExtensions": [
+      "coffee"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "coffee",
+      "litcoffee",
+      "coffee.md"
+    ]
   }
 }

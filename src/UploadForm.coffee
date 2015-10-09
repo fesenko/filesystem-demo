@@ -11,7 +11,7 @@ UploadForm = React.createClass
 
   componentDidMount: ->
     fileElem = React.findDOMNode @refs.fileURI
-    fileElem.value = 'https://pbs.twimg.com/profile_images/378800000532546226/dbe5f0727b69487016ffd67a6689e75a.jpeg'
+    fileElem.value = 'https://s3-ap-northeast-1.amazonaws.com/b2b-test-video/cities/hk.jpg'
 
   render: ->
     <div>

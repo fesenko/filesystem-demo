@@ -1,7 +1,7 @@
 React = require 'React'
-UploadForm = require '../upload-form/upload-form.coffee'
-PictureList = require '../picture-list/picture-list.coffee'
-storage = require '../storage/storage.coffee'
+UploadForm = require './UploadForm.coffee'
+PictureList = require './PictureList.coffee'
+storage = require './storage.coffee'
 
 View = React.createClass
   getInitialState: ->

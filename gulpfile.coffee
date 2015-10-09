@@ -12,9 +12,9 @@ wiredep = require 'wiredep'
 
 htmlFilesMask = './src/**/*.html'
 libs = [
-	'promise-polyfill'
 	'react-tools'
 	'React'
+	'xhr'
 ]
 
 browserifyOpts =
@@ -78,4 +78,4 @@ gulp.task 'webserver', ['build'], ->
 			root: './build'
 
 gulp.task 'default', ['build', 'webserver'], ->
-	gulp.watch htmlFilesMask, ['html']
+	# gulp.watch htmlFilesMask, ['html']
