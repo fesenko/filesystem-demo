@@ -7,7 +7,7 @@ exports.fetch = (url)->
             method: 'GET'
             responseType: 'blob'
         , (err, resp, body)->
-            if resp.statusCode == 200
-                resolve body
+            if err || resp.statusCode != 200
+                reject 'Cannot fetch the resource'
             else
-                reject()
+                resolve body
