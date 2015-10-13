@@ -1,5 +1,4 @@
-jest
-    .dontMock '../downloader.coffee'
+jest.dontMock '../downloader.coffee'
 
 describe 'Downloader', ->
     xhr = require 'xhr'

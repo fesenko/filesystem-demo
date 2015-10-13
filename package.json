@@ -9,9 +9,11 @@
   },
   "license": "ISC",
   "dependencies": {
+    "@phated/filer": "^0.2.5",
     "browserify": "^11.0.1",
     "coffee-reactify": "^4.0.0",
     "coffee-script": "^1.9.3",
+    "node-uuid": "^1.4.3",
     "react": "^0.13.3",
     "react-tools": "^0.13.3",
     "xhr": "^2.1.0"
@@ -32,7 +34,9 @@
   "jest": {
     "rootDir": "src",
     "scriptPreprocessor": "../preprocessor.js",
-    "unmockedModulePathPatterns": ["global/window"],
+    "unmockedModulePathPatterns": [
+      "global/window"
+    ],
     "testFileExtensions": [
       "coffee"
     ],
