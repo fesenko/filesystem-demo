@@ -1,11 +1,13 @@
 var coffee = require('coffee-script');
+var transform = require('coffee-react-transform');
 
 module.exports = {
   process: function(src, path) {
-    var stage = process.env.BABEL_JEST_STAGE || 2;
-
     if (coffee.helpers.isCoffee(path)) {
-        return coffee.compile(src, {'bare': true});
+        var compiled_cjx = transform(src);
+        var compiled_to_react = coffee.compile(compiled_cjx, {bare: true});
+
+        return compiled_to_react;
     }
     return src;
   }

@@ -11,8 +11,10 @@
   "dependencies": {
     "@phated/filer": "^0.2.5",
     "browserify": "^11.0.1",
+    "coffee-react-transform": "^3.3.0",
     "coffee-reactify": "^4.0.0",
     "coffee-script": "^1.9.3",
+    "jest-cli": "^0.5.8",
     "node-uuid": "^1.4.3",
     "react": "^0.13.3",
     "react-tools": "^0.13.3",
@@ -24,7 +26,6 @@
     "gulp-coffee": "^2.3.1",
     "gulp-util": "^3.0.6",
     "gulp-webserver": "^0.9.1",
-    "jest-cli": "^0.5.8",
     "main-bower-files": "^2.9.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
@@ -35,7 +36,8 @@
     "rootDir": "src",
     "scriptPreprocessor": "../preprocessor.js",
     "unmockedModulePathPatterns": [
-      "global/window"
+      "global/window",
+      "node_modules/react"
     ],
     "testFileExtensions": [
       "coffee"
@@ -45,7 +47,8 @@
       "json",
       "coffee",
       "litcoffee",
-      "coffee.md"
+      "coffee.md",
+      "jsx"
     ]
   }
 }

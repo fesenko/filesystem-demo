@@ -1,4 +1,4 @@
-React = require 'React'
+React = require 'react'
 
 Picture = React.createClass
     render: ->
