@@ -12,8 +12,8 @@ class FileSystem
 
     uploadFile: (blob)->
         new Promise (resolve, reject)=>
-            @filer.write uuid.v4(), data: blob, ->
-                resolve()
+            @filer.write uuid.v4(), data: blob, (entry)->
+                resolve entry.toURL()
             , reject
 
     getAllFiles: ->

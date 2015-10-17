@@ -9,10 +9,10 @@ describe 'Picture', ->
         imgUrl = 'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='
 
         renderedComponent = TestUtils.renderIntoDocument <Picture url=imgUrl />
-        elem = React.findDOMNode renderedComponent
+        node = React.findDOMNode renderedComponent
 
-        expect elem.tagName
+        expect node.tagName
             .toEqual 'IMG'
 
-        expect elem.src
+        expect node.src
             .toEqual imgUrl

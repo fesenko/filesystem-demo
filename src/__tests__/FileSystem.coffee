@@ -30,9 +30,11 @@ describe 'FileSystem', ->
 
     describe 'uploadFile', ->
         beforeEach ->
+            entity =
+                toURL: jest.genMockFn()
             uuid.v4.mockImplementation -> '<uuid>'
             @fs.filer.write.mockImplementation (name, data, onSuccess, onError)->
-                onSuccess()
+                onSuccess entity
 
         pit 'calls the method write of the filer instance', ->
             @fs.uploadFile '<blob>'

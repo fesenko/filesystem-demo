@@ -1,4 +1,4 @@
-React = require 'React'
+React = require 'react'
 UploadForm = require './UploadForm.coffee'
 PictureList = require './PictureList.coffee'
 downloader = require './downloader.coffee'
@@ -16,15 +16,21 @@ View = React.createClass
                 @setState
                     pictureUrls: fileUrls
 
-    uploadFile: (url)->
+    uploadResource: (url)->
         downloader.fetch url
-        .then (blob)->
+        .then (blob)=>
             fs.uploadFile blob
+            .then (url)=>
+                pictureUrls = @state.pictureUrls
+                pictureUrls.unshift url
+                @setState
+                    pictureUrls: pictureUrls
+
 
     render: ->
         <div>
-            <UploadForm onChooseFiles={this.uploadFile} />
-            <PictureList pictureUrls={this.state.pictureUrls} />
+            <UploadForm onSubmit={@uploadResource} />
+            <PictureList pictureUrls={@state.pictureUrls} />
         </div>
 
 

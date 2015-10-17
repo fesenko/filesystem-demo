@@ -1,23 +1,19 @@
-React = require 'React'
+React = require 'react'
 
 UploadForm = React.createClass
     handleSubmit: (event)->
         event.preventDefault()
-
-        fileElem = React.findDOMNode @refs.fileURI
-        fileURI = fileElem.value
-
-        this.props.onChooseFiles fileURI
-
-    componentDidMount: ->
-        fileElem = React.findDOMNode @refs.fileURI
-        fileElem.value = 'https://s3-ap-northeast-1.amazonaws.com/b2b-test-video/cities/hk.jpg'
+        inputElem = React.findDOMNode @refs.uri
+        uri = inputElem.value
+        this.props.onSubmit uri
+        .then =>
+            inputElem.value = ''
 
     render: ->
         <div>
             <form onSubmit={@handleSubmit}>
                 <div className="form-group">
-                    <input type="text" className="form-control" placeholder="file URI" ref="fileURI" />
+                    <input type="text" className="form-control" placeholder="Enter url to upload" ref="uri" />
                 </div>
                 <button type="submit" className="btn btn-default">Upload</button>
             </form>
