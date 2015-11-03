@@ -1,4 +1,7 @@
 React = require 'react'
+ReactDOM = require 'react-dom'
 View = require './View.coffee'
 
-React.render <View />, document.body
+container = document.getElementById 'app-container'
+
+ReactDOM.render <View />, container

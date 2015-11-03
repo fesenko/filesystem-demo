@@ -12,9 +12,13 @@ wiredep = require 'wiredep'
 
 htmlFilesMask = './src/**/*.html'
 libs = [
-	'react-tools'
-	'React'
+	'@phated/filer'
+	'node-uuid'
 	'xhr'
+	'react'
+	'react-bootstrap'
+	'react-tools'
+	'react-dom'
 ]
 
 browserifyOpts =
@@ -41,7 +45,7 @@ gulp.task 'libs', ['cleanBuildDir'], ->
 	browserify {}
 	.require libs
 	.bundle()
-	.pipe source('libs.js')
+	.pipe source('lib.js')
 	.pipe gulp.dest('./build')
 
 gulp.task 'bower', ['html'], ->
