@@ -1,7 +1,7 @@
 {
-  "name": "Demo",
+  "name": "ImageGallery",
   "version": "1.0.0",
-  "description": "Demo of using File System APIs",
+  "description": "Image gallery",
   "author": "Sergey Fesenko",
   "main": "build/index.js",
   "scripts": {
